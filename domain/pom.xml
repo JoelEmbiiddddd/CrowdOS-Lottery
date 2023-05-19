@@ -50,14 +50,14 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.itedus.lottery</groupId>
-            <artifactId>lottery-common</artifactId>
+            <groupId>cn.crowdos.lottery</groupId>
+            <artifactId>common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>lottery-domain</finalName>
+        <finalName>domain</finalName>
         <plugins>
             <!-- 编译plugin -->
             <plugin>
