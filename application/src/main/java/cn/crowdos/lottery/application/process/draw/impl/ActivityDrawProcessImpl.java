@@ -95,7 +95,7 @@ public class ActivityDrawProcessImpl implements IActivityDrawProcess {
         }
 
         // 5. 发送MQ，触发发奖流
-        //消息发送完毕后进行回调处理，更新数据库中 MQ 发送的状态，
+        // 消息发送完毕后进行回调处理，更新数据库中 MQ 发送的状态，
         // 如果有 MQ 发送失败则更新数据库 mq_state = 2 这里还有可能在更新库表状态的时候失败，但没关系这些都会被 worker 补偿处理掉，一种是发送 MQ 失败，
         // 另外一种是 MQ 状态为 0 但很久都没有发送 MQ 那么也可以触发发送。
         InvoiceVO invoiceVO = buildInvoiceVO(drawOrderVO);

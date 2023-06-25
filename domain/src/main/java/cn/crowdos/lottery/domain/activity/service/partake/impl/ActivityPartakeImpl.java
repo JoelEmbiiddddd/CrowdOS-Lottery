@@ -98,7 +98,7 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
 
     @Override
     // 5. 插入领取活动信息【个人用户把活动信息写入到用户表】
-    //this.grabActivity 方法，用户领取活动时候，新增记录：strategy_id、state 两个字段，
+    // this.grabActivity 方法，用户领取活动时候，新增记录：strategy_id、state 两个字段，
     // 这两个字段就是为了处理用户对领取镜像记录的二次处理未执行抽奖的领取单，以及state状态控制事务操作的幂等性。
     protected Result grabActivity(PartakeReq partake, ActivityBillVO bill, Long takeId) {
         try {
@@ -135,7 +135,7 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
             return transactionTemplate.execute(status -> {
                 try {
                     // 锁定活动领取记录
-                    int lockCount = userTakeActivityRepository.lockTackActivity(drawOrder.getuId(), drawOrder.getActivityId(), drawOrder.getTakeId());
+                    int lockCount = userTakeActivityRepository. lockTackActivity(drawOrder.getuId(), drawOrder.getActivityId(), drawOrder.getTakeId());
                     if (0 == lockCount) {
                         status.setRollbackOnly();
                         logger.error("记录中奖单，个人参与活动抽奖已消耗完 activityId：{} uId：{}", drawOrder.getActivityId(), drawOrder.getuId());
